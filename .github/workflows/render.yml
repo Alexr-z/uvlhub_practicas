@@ -2,9 +2,13 @@ name: Deploy to Render
 
 on:
     push:
+      tags: # Modificación 3
+        - '*'
       branches:
         - main
-    pull_request:
+    pull_request: # Modificación 1
+      types:
+        -closed
       branches:
         - main
 
@@ -13,6 +17,7 @@ jobs:
   deploy:
     name: Deploy to Render
     runs-on: ubuntu-24.04
+    if: github.event.pull_request.merged == true || github.ref_type == 'tag' # Modificación 1
     steps:
       - name: Check out the repo
         uses: actions/checkout@v5
