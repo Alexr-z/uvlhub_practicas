@@ -45,6 +45,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         pip install -e ./rosemary
+        pip install pip-audit
 
 
     - name: Verificar dependencias instaladas # Modificación 1
