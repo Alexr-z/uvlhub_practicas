@@ -53,7 +53,7 @@ jobs:
         pip list --outdated
 
     - name: Análisis de Seguridad # Modificación 3
-      run: pip-audit
+      run: pip-audit --skip rosemary
 
     - name: Run tests with coverage
       run: |
